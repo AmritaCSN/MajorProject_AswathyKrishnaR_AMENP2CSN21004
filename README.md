@@ -12,6 +12,7 @@ Please refer to the Architectural Block Diagram for a visual overview of the sys
 The code in this repository is organized as follows:
 
 -   `/src`: This directory contains all source code files for the project.
+    -	`main_code.py': This is main code   
     -   `rsa_code.py`: This file contains functions related to RSA encryption and decryption, as well as generating and loading RSA keys.
     -   `hbv_code.py`: This file contains functions related to HBV encryption and decryption, deriving keys from words and generating random keys.
     -   `lsb_code.py`: This file contains functions related to least significant bit (LSB) steganography, specifically encoding and decoding messages within images.
