@@ -23,16 +23,26 @@ The code in this repository is organized as follows:
 
 ## How It Works
 
-This project implements a secure communication system using a combination of different encryption techniques.
+This project implements a secure communication system with encryption, decryption, and LSB techniques.
 
-1.  **RSA Encryption**: The RSA algorithm is used for secure data transmission. The public key is used for encryption and the private key is used for decryption.
+
+1.  **Message  Encryption**
+     -   Generate two separate random keys of length 128 bits using a random function for        the Beaufort and Vigenere ciphers.
+    -   Pass the keys through a Key Derivation Function (KDF) for added security.
+    -   Encrypt the message using the HBV cipher with the keys derived from the KDF.
+    -   Further encrypt the intermediate HBV ciphertext using RSA public key encryption.
+    -   Embed the final ciphertext into a cover image using the LSB technique, resulting in a stego image.
+  
+ 2.  **Secure Communication**
+       -   Transfer the stego image through a secure communication channel to the receiver.
     
-2.  **HBV Encryption**: HBV is a symmetric encryption method. It uses a shared key for both encryption and decryption. The key is derived from a word input by the user.
-    
-3.  **Steganography**: Steganography is the practice of concealing a file, message, image, or video within another file, message, image, or video. In this case, the LSB steganography technique is used to hide encrypted messages within an image.
+3. **Message Decryption**
+    -   Retrieve the final ciphertext from the stego image using the LSB technique.
+    -   Decrypt the extracted ciphertext using the receiver's RSA private key.
+    -   Decrypt the intermediate ciphertext using HBV with the two keys derived from the KDF.
+    -   Decrypt the Vigenere cipher-encrypted message using the second key derived from the KDF.
+    -   Decrypt the resulting ciphertext using the Beaufort cipher with the first key derived from the KDF.
 
-
-The combination of these techniques provides two layers of security for the transmitted message. First, it is encrypted using the RSA and HBV methods. Then, the encrypted message is concealed within an image using steganography, making it extremely difficult to detect and decrypt.
 
 ## Getting Started
 
