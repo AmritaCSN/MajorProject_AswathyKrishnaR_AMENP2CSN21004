@@ -40,8 +40,7 @@ This project implements a secure communication system with encryption, decryptio
     -   Retrieve the final ciphertext from the stego image using the LSB technique.
     -   Decrypt the extracted ciphertext using the receiver's RSA private key.
     -   Decrypt the intermediate ciphertext using HBV with the two keys derived from the KDF.
-    -   Decrypt the Vigenere cipher-encrypted message using the second key derived from the KDF.
-    -   Decrypt the resulting ciphertext using the Beaufort cipher with the first key derived from the KDF.
+  
 
 
 ## Getting Started
