@@ -5,7 +5,7 @@ This repository contains the implementation of a secure communication system usi
 ## Diagram
 
 Please refer to the Architectural Block Diagram for a visual overview of the system architecture and flow of data.
-![enter image description here](test.test)
+![Workflow/Architectural Diagram](https://github.com/AmritaCSN/MajorProject_AswathyKrishnaR_AMENP2CSN21004/blob/main/Fig5.png)
 
 ## Code Organization
 
