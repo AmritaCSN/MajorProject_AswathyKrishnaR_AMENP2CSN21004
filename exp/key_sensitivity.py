@@ -23,18 +23,6 @@ def percentage_change(original_key, modified_key):
     num_different_chars = sum(1 for a, b in zip(original_key, modified_key) if a != b)
     return (num_different_chars / len(original_key)) * 100
 
-def get_random_indices(text):
-    text_length = len(text)
-    half_text_length = text_length // 2
-    quarter_text_length = text_length // 4
-    if half_text_length > quarter_text_length:
-        half_text_length, quarter_text_length = quarter_text_length, half_text_length
-    min_index = random.randint(half_text_length, quarter_text_length)
-    max_index = random.randint(half_text_length, quarter_text_length)
-    while max_index == min_index:
-        max_index = random.randint(half_text_length, quarter_text_length)
-    return min_index, max_index
-
 
 def main():
     print("=============================================")
