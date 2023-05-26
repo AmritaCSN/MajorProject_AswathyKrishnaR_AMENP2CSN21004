@@ -4,8 +4,6 @@ import string
 import hashlib
 import binascii
 import os, base64
-# from ..src.hbv_code import hbv_encrypt, hbv_decrypt, random_key_generator, derive_key_from_word
-# import hbv_code which is in a `src` folder in the parent directory
 from hbv_code import hbv_encrypt, hbv_decrypt, random_key_generator, derive_key_from_word
 
 
