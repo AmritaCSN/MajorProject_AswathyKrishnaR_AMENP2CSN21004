@@ -5,10 +5,7 @@ from lsb_code import lsb_encode, lsb_decode
 
 
 def main():
-    # Choose encode decode or generate rsa keys
-    # If encode is chosen, accept the message file, beaufort key, vigenere key, rsa public key, cover image and output the stego image.
-    # If decode is chosen, accept the stego image, beaufort key, vigenere key, rsa private key and output the message file.
-    # If the user enters an invalid option, print an error message and exit.
+    
     input_option = input("Enter 'encode', 'decode' or 'generate' to choose an option: ")
     if input_option == "encode":
         message_file = input("Enter the message file name: ") # ../data/message/msgtest.txt
