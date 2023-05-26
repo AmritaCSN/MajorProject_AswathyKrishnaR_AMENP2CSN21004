@@ -39,7 +39,6 @@ def hbv_decrypt(ciphertext, key1, key2):
     return plaintext
 
 def derive_key_from_word(word):
-    # salt = os.urandom(16) # generate a random salt
     salt = b'\x9a\x1f}\x8b\xf8\x03\xab\xd5\xf0\xe1\x9b\xde\x9e\x10\x15.'
     iterations = 10000 # number of iterations for PBKDF2
     key_length = 64 # desired length of the key
