@@ -2,7 +2,7 @@ import time, cv2, datetime
 from rsa_code import rsaencrypt, rsadecrypt, generateKeys, loadPrivateKey, loadPublicKey
 from hbv_code import hbv_encrypt, hbv_decrypt, derive_key_from_word, random_key_generator
 from lsb_code import lsb_encode, lsb_decode
-# from rsa_aes_code import rsaencrypt, rsadecrypt, generateKeys, loadPrivateKey, loadPublicKey, hybridEncrypt, hybridDecrypt
+
 
 def main():
     # Choose encode decode or generate rsa keys
@@ -25,14 +25,12 @@ def main():
         rsa_public_key = input("Enter the rsa public key file name: ")
         cover_image = input("Enter the cover image file name: ")
         # Generate stego image file name from cover image file name
-        # stego_image = "output_" + datetime.datetime.now().strftime("%Y%m%d%H%M%S") + ".png"
         stego_image = "output_image.png"
         start_time = time.time()
         with open(message_file, "r") as f:
             message = f.read()
         hbv_encrypted_message = hbv_encrypt(message, vigenere_key, beaufort_key)
         public_key = loadPublicKey(rsa_public_key)
-        # rsa_encrypted_message = rsaencrypt(hbv_encrypted_message, public_key)
         rsa_encrypted_message = rsaencrypt(hbv_encrypted_message, public_key)
         lsb_encoded_image = lsb_encode(cover_image, rsa_encrypted_message)
         print("Stego image file name: ", stego_image)
@@ -55,7 +53,6 @@ def main():
         start_time = time.time()
         lsb_decoded_message = lsb_decode(stego_image)
         private_key = loadPrivateKey(rsa_private_key)
-        # rsa_decrypted_message = rsadecrypt(lsb_decoded_message, private_key)
         rsa_decrypted_message = rsadecrypt(lsb_decoded_message, private_key) 
         hbv_decrypted_message = hbv_decrypt(rsa_decrypted_message, vigenere_key, beaufort_key)
         with open(message_file, "w") as f:
