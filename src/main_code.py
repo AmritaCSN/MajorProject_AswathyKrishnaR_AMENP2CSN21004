@@ -10,10 +10,8 @@ def main():
     if input_option == "encode":
         message_file = input("Enter the message file name: ") # ../data/message/msgtest.txt
         b_key, v_key = random_key_generator(8, 8)
-        # beaufort_key_user_input = input("Enter the beaufort key: ")
         with open("beaufort_key.txt", "w") as f:
             f.write(b_key)
-        # vigenere_key_user_input = input("Enter the vigenere key: ")
         with open("vigenere_key.txt", "w") as f:
             f.write(v_key)
         print("Beaufort key saved in beaufort_key.txt and vigenere key saved in vigenere_key.txt")
