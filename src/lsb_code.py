@@ -40,7 +40,6 @@ def lsb_encode(image, secret_message):
     if len(secret_message) > n_bytes:
         raise ValueError("Error encountered insufficient bytes, need bigger image or less data !!")
     
-    # secret_message += "#####"
     separator = "#####".encode('utf-8')  # Convert the separator to bytes
     secret_message += separator
 
@@ -53,13 +52,12 @@ def lsb_encode(image, secret_message):
     for row in image:
         for rgb_pixel in row:
             # convert RGB values to binary format
-            # r, g, b = msg_to_bin(rgb_pixel)
             r, g, b = rgb_pixel  # Extract the RGB values directly from the pixel
             # Convert each RGB value to binary
             r = msg_to_bin(r)
             g = msg_to_bin(g)
             b = msg_to_bin(b)
-            # print(r, g, b)
+          
             # modify the least significant bit only if there is still data to store
             if data_index < data_len:
                 # least significant red pixel bit
@@ -84,7 +82,6 @@ def lsb_decode(image):
     binary_data = ""
     for row in image:
         for rgb_pixel in row:
-            # r, g, b = msg_to_bin(rgb_pixel)
             r, g, b = rgb_pixel  # Extract the RGB values directly from the pixel
             # Convert each RGB value to binary
             r = msg_to_bin(r)
